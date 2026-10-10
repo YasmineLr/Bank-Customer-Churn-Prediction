@@ -1,79 +1,250 @@
-# Prédiction de l'Attrition des Clients Bancaires
+#  Prédiction de l'Attrition des Clients Bancaires
 
-### Machine Learning · Deep Learning · Intelligence Artificielle Explicable (XAI)
+**Machine Learning | Deep Learning | Explainable AI (XAI) | Customer Churn Prediction**
 
 **Projet de Fin d'Année (PFA) — ENSAO Oujda**  
+**Filière : Management et Gouvernance des Systèmes d'Information (MGSI)**  
 **Année universitaire : 2025–2026**
 
-## Présentation du projet
+---
 
-Ce projet vise à analyser et prédire l'attrition des clients bancaires (*Customer Churn*) à l'aide de techniques de Machine Learning et de Deep Learning.
+##  Présentation du projet
 
-L'objectif est d'identifier les clients susceptibles de quitter leur banque, de comprendre les facteurs associés à leur départ et de proposer des actions de fidélisation adaptées.
+Dans un secteur bancaire de plus en plus concurrentiel, la fidélisation des clients représente un enjeu stratégique majeur.
 
-## Objectifs
+L'attrition client, également appelée *Customer Churn*, désigne le phénomène par lequel un client cesse d'utiliser les services d'une entreprise.
 
-- **Prédire** le risque de départ des clients bancaires.
-- **Comparer** les performances de plusieurs algorithmes prédictifs.
-- **Expliquer** les prédictions grâce aux techniques d'IA explicable.
-- **Proposer** des recommandations de rétention client.
+Ce projet a pour objectif de développer une approche prédictive permettant d'identifier les clients présentant un risque de départ, à partir de leurs caractéristiques et de leurs comportements.
 
-## Données utilisées
+Il combine plusieurs techniques de **Machine Learning**, de **Deep Learning** et d'**Intelligence Artificielle Explicable (XAI)** afin de transformer les prédictions en informations utiles pour la prise de décision.
 
-Le projet repose sur deux jeux de données :
+##  Objectifs du projet
 
-1. **Bank Customer Churn Prediction** : données générales sur les clients bancaires.
-2. **Credit Card Churn** : données relatives à l'attrition des clients détenteurs de cartes bancaires.
+- Analyser les caractéristiques des clients bancaires.
+- Identifier les facteurs associés au risque d'attrition.
+- Développer plusieurs modèles de classification.
+- Comparer les performances des algorithmes.
+- Interpréter les prédictions grâce à SHAP.
+- Explorer des scénarios contrefactuels avec DiCE.
+- Proposer des pistes d'amélioration de la fidélisation client.
 
-## Méthodologie
+##  Jeux de données
 
-Le projet suit plusieurs étapes :
+Le projet utilise deux datasets distincts provenant de Kaggle.
 
-1. Exploration et analyse des données (EDA).
-2. Préparation et transformation des données.
-3. Entraînement des modèles de Machine Learning.
-4. Développement d'un réseau de neurones MLP.
-5. Évaluation et comparaison des performances.
-6. Interprétation des prédictions avec SHAP et DiCE.
-7. Élaboration de recommandations de fidélisation.
+| Dataset | Description |
+|---|---|
+| Bank Customer Churn Prediction | Données sur les caractéristiques des clients bancaires et leur attrition |
+| Credit Card Churn | Données relatives aux clients détenteurs de cartes bancaires et à leur risque de départ |
 
-## Modèles utilisés
+L'utilisation de deux jeux de données permet d'étudier la problématique de l'attrition dans différents contextes bancaires.
 
-- Régression logistique
-- Random Forest
-- XGBoost
-- Multi-Layer Perceptron (MLP)
+**Fichiers :**
 
-Les modèles sont notamment évalués à l'aide de l'AUC-ROC.
+- `Bank Customer Churn Prediction.csv`
+- `credit_card_churn.csv`
 
-## Intelligence artificielle explicable
+**Sources :** Kaggle — liens exacts des deux datasets à ajouter, ainsi que leurs licences respectives.
 
-**SHAP** permet d'identifier la contribution des différentes variables aux prédictions des modèles.
+##  Méthodologie
 
-**DiCE** permet de générer des explications contrefactuelles, afin d'explorer les changements de caractéristiques susceptibles de modifier une prédiction.
+Le projet suit une démarche structurée en plusieurs étapes.
 
-## Technologies utilisées
+### 1. Analyse exploratoire des données (EDA)
 
-Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, XGBoost, TensorFlow/Keras, SHAP, DiCE et Jupyter Notebook.
+L'analyse exploratoire permet de comprendre les caractéristiques des datasets, d'étudier la répartition des clients et d'examiner les relations entre les variables.
 
-## Exécution du projet
+Elle comprend notamment :
 
-1. Télécharger ou cloner le dépôt GitHub.
-2. Installer les dépendances :
+- L'exploration des dimensions et des types de variables.
+- L'analyse des distributions.
+- L'étude de la variable cible.
+- L'analyse des corrélations.
+- La visualisation des caractéristiques des clients.
 
-   `python -m pip install -r requirements.txt`
+### 2. Préparation des données
 
-3. Placer les deux fichiers CSV dans le même dossier que le notebook.
-4. Lancer Jupyter Notebook depuis le dossier du projet.
-5. Ouvrir `PFA_Churn_Bancaire_ENSAO.ipynb`.
-6. Exécuter les cellules dans l'ordre.
+Cette phase prépare les données pour leur utilisation par les modèles prédictifs.
 
-## Résultats et perspectives
+Elle comprend les transformations nécessaires, notamment le traitement des variables catégorielles et numériques selon les besoins des algorithmes.
 
-Le projet permet de comparer plusieurs approches de prédiction du churn, d'analyser les facteurs associés au départ des clients et de transformer les résultats des modèles en recommandations métier.
+### 3. Modélisation prédictive
 
-Il illustre l'utilisation de la Data Science et de l'IA explicable pour soutenir la prise de décision dans le secteur bancaire.
+Quatre approches sont étudiées :
 
-## Contexte académique
+| Modèle | Type | Rôle |
+|---|---|---|
+| Logistic Regression | Machine Learning | Modèle de référence pour la classification |
+| Random Forest | Machine Learning | Ensemble d'arbres de décision |
+| XGBoost | Machine Learning | Modèle d'ensemble basé sur le gradient boosting |
+| Multi-Layer Perceptron (MLP) | Deep Learning | Réseau de neurones pour la classification |
 
-Projet réalisé dans le cadre de la formation en **Management et Gouvernance des Systèmes d'Information (MGSI)** à l'École Nationale des Sciences Appliquées d'Oujda (ENSAO), Université Mohammed Premier, Maroc.
+### 4. Évaluation des modèles
+
+Les modèles sont comparés à l'aide de métriques de classification, avec une attention particulière portée à l'**AUC-ROC**.
+
+L'objectif est d'évaluer leur capacité à distinguer les clients susceptibles de quitter leur banque de ceux susceptibles de rester.
+
+### 5. Intelligence artificielle explicable (XAI)
+
+Au-delà de la performance prédictive, ce projet cherche à rendre les résultats des modèles plus compréhensibles.
+
+**SHAP — SHapley Additive exPlanations**
+
+SHAP permet d'étudier l'influence des variables sur les prédictions, au niveau global et individuel.
+
+**DiCE — Diverse Counterfactual Explanations**
+
+DiCE permet d'explorer des scénarios contrefactuels en recherchant des changements de caractéristiques susceptibles de modifier la prédiction d'un modèle.
+
+Ces outils contribuent à rendre l'analyse plus interprétable et plus utile dans un contexte métier.
+
+##  Visualisation des résultats
+
+### Distribution de l'attrition
+
+![Distribution du churn](fig1_churn_distribution.png)
+
+### Analyse exploratoire des données
+
+![Résultats de l'analyse exploratoire](eda_dataset1_resultats.png)
+
+### Matrice de corrélation
+
+![Heatmap des corrélations](eda_dataset1_heatmap.png)
+
+### Comparaison des modèles
+
+![Comparaison des performances des modèles](ml_dataset1_comparaison.png)
+
+### Matrice de confusion
+
+![Matrice de confusion](ml_dataset1_confusion.png)
+
+##  Résultats prédictifs
+
+Les résultats suivants concernent le **premier dataset**, sur la base des valeurs AUC-ROC obtenues lors de l'exécution du notebook.
+
+| Modèle | AUC-ROC |
+|---|---:|
+| Logistic Regression | 0,764 |
+| Random Forest | **0,857** |
+| XGBoost | 0,853 |
+| MLP (Deep Learning) | 0,853 |
+
+Dans cette comparaison, **Random Forest obtient la meilleure AUC-ROC**, avec un score de 0,857.
+
+Ces résultats illustrent l'intérêt des méthodes d'ensemble pour la prédiction du churn sur ce jeu de données.
+
+Les analyses du second dataset sont disponibles dans le notebook.
+
+*Remarque : les performances correspondent aux expérimentations réalisées sur les jeux de données utilisés. Elles ne constituent pas une validation sur des données bancaires réelles en production.*
+
+##  Interprétation métier et fidélisation
+
+Les résultats du projet peuvent soutenir une démarche de fidélisation fondée sur les données.
+
+Les principales pistes d'utilisation sont :
+
+- Identifier les clients présentant un risque élevé de départ.
+- Comprendre les facteurs associés à ce risque.
+- Prioriser les actions de fidélisation.
+- Adapter les offres et les interactions selon les profils.
+- Accompagner la prise de décision par des explications interprétables.
+
+Ces recommandations constituent des pistes d'action et ne démontrent pas, à elles seules, l'efficacité réelle d'une campagne de fidélisation.
+
+##  Technologies utilisées
+
+| Catégorie | Technologies |
+|---|---|
+| Langage | Python |
+| Environnement | Jupyter Notebook |
+| Manipulation des données | Pandas, NumPy |
+| Visualisation | Matplotlib, Seaborn |
+| Machine Learning | Scikit-learn, XGBoost |
+| Deep Learning | TensorFlow / Keras |
+| Explainable AI | SHAP, DiCE |
+| Versionnement | GitHub |
+
+##  Structure du projet
+
+```text
+Bank-Customer-Churn-Prediction/
+│
+├── PFA_Churn_Bancaire_ENSAO.ipynb
+│
+├── Bank Customer Churn Prediction.csv
+├── credit_card_churn.csv
+│
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── fig1_churn_distribution.png
+├── eda_dataset1_resultats.png
+├── eda_dataset1_heatmap.png
+├── ml_dataset1_comparaison.png
+└── ml_dataset1_confusion.png
+```
+
+*La structure présente les principaux fichiers du projet. D'autres graphiques peuvent également être disponibles dans le dépôt.*
+
+##  Installation et exécution
+
+### 1. Cloner le repository
+
+```bash
+git clone https://github.com/YasmineLr/Bank-Customer-Churn-Prediction.git
+```
+
+### 2. Accéder au dossier
+
+```bash
+cd Bank-Customer-Churn-Prediction
+```
+
+### 3. Installer les dépendances
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Il est recommandé d'utiliser un environnement Python virtuel ou un environnement Conda dédié.
+
+### 4. Lancer Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+### 5. Exécuter le projet
+
+Ouvrir le fichier :
+
+`PFA_Churn_Bancaire_ENSAO.ipynb`
+
+Exécuter les cellules dans l'ordre.
+
+Les fichiers CSV doivent être présents dans le même répertoire que le notebook.
+
+##  Perspectives d'amélioration
+
+Plusieurs prolongements peuvent être envisagés :
+
+- Optimisation des hyperparamètres.
+- Évaluation sur de nouveaux jeux de données.
+- Développement d'une interface interactive de prédiction.
+- Déploiement du modèle sous forme d'application.
+- Intégration dans un tableau de bord décisionnel.
+- Évaluation de l'impact réel des stratégies de fidélisation.
+
+##  Contexte académique
+
+Ce projet a été réalisé dans le cadre du **Projet de Fin d'Année (PFA)** de la filière **Management et Gouvernance des Systèmes d'Information (MGSI)** à l'**École Nationale des Sciences Appliquées d'Oujda (ENSAO)**, Université Mohammed Premier, Maroc.
+
+Il mobilise des compétences en analyse de données, modélisation prédictive, intelligence artificielle explicable et aide à la décision.
+
+---
+
+**Projet académique — Data Science & Artificial Intelligence for Banking Customer Retention**
